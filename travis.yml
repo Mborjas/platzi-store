@@ -1,5 +1,4 @@
 language: node_js
-# 
 cache:
   directories:
     - node_modules
@@ -10,16 +9,14 @@ node_js:
 # niveles de permiso
 git:
   depth: 3
-
 script:
   # la configuracion de travis tiene yarn
   - yarn build
-
 deploy:
   provider: pages # github pages
   skip-clean: true # ?
   keep-history: true # ?
-  github-token: $GITHUB_TOKEN
+  github-token: $GITHUB_TOKEN # variable de entorno
   local-dir: dist/   # es el path resultado de build
   target-branch: gh-pages # 
   commit_message: "deploy on project" # mensaje del commit
